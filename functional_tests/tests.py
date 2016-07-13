@@ -16,10 +16,11 @@ class NewVisitorTest(StaticLiveServerTestCase):
         super().setUpClass()
         cls.server_url = cls.live_server_url
 
-    @classmethod
-    def tearDownClass(cls):
-        if cls.server_url == cls.live_server_url:
-            super().tearDownClass()
+    # really we don't need it at all
+    # @classmethod
+    # def tearDownClass(cls):
+    #     if cls.server_url == cls.live_server_url:
+    #         super().tearDownClass()
 
     def setUp(self):
         self.browser = webdriver.Firefox()
