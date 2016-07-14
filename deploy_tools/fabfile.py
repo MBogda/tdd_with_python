@@ -2,7 +2,7 @@ from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
 import random
 
-REPO_URL = 'https:/github.com/MBogda/tdd_with_python.git'
+REPO_URL = 'https://github.com/MBogda/tdd_with_python.git'
 
 def deploy():
     site_folder = '/home/%s/sites/%s' % (env.user, env.host)
@@ -31,7 +31,7 @@ def _update_settings(source_folder, site_name):
     sed(settings_path, "DEBUG = True", "DEBUG = False")
     sed(settings_path,
         'ALLOWED_HOSTS =.+$',
-        'ALLOWED-HOSTS = ["%S"]' % (site_name,)
+        'ALLOWED_HOSTS = ["%s"]' % (site_name,)
     )
     secret_key_file = source_folder + '/superlists/secret_key.py'
     if not exists(secret_key_file):
