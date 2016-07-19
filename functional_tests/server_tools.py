@@ -8,6 +8,7 @@ def create_session_on_server(host, email):
     return subprocess.check_output(
         [
             'fab',
+            '--user=ubuntu',
             '-i {}'.format('~/.ssh/BogdanKeyPair.pem'),
             'create_session_on_server:email={}'.format(email),
             '--host={}'.format(host),
